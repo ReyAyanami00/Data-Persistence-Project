@@ -24,8 +24,10 @@ public class MenuUI : MonoBehaviour
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
+        GameManager.Instance.Save();
 #else
     Application.Quit();
+
 #endif
     }
 }

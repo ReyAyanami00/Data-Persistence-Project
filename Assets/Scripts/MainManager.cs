@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -50,6 +51,7 @@ public class MainManager : MonoBehaviour
     {
         if (!m_Started)
         {
+            GameManager.Instance.Load();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 m_Started = true;
@@ -63,6 +65,7 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
+            GameManager.Instance.Save();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -85,6 +88,7 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+       
     }
 
     
